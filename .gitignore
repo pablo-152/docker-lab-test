@@ -1,6 +1,10 @@
-# Datos físicos de MySQL/MariaDB
+# Datos físicos del motor MySQL/MariaDB
 mysql/data/
 mysql/data_mysql8_backup/
+
+# Backups grandes
+mysql/*.sql
+mysql/backups/*.sql
 
 # Backups de BD grandes
 *.sql
