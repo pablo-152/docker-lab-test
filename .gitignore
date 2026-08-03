@@ -21,5 +21,6 @@ mysql/data_mysql8_backup/
 Thumbs.db
 desktop.ini
 
-# Gits
-proyectos/
+# Proyectos externos
+proyectos/*
+!proyectos/README.md
