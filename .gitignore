@@ -1,0 +1,22 @@
+# Datos físicos de MySQL/MariaDB
+mysql/data/
+mysql/data_mysql8_backup/
+
+# Backups de BD grandes
+*.sql
+*.zip
+*.7z
+
+# Variables de entorno
+.env
+
+# Docker logs
+*.log
+
+# IDE
+.vscode/
+.idea/
+
+# Windows
+Thumbs.db
+desktop.ini

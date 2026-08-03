@@ -1,0 +1,47 @@
+services:
+
+  mysql-dev:
+    image: mariadb:10.3
+    container_name: mysql-dev
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root123
+      MYSQL_DATABASE: snappy_test
+    ports:
+      - "3306:3306"
+    volumes:
+      - ../mysql/data:/var/lib/mysql
+
+
+  phpmyadmin:
+    image: phpmyadmin:latest
+    container_name: phpmyadmin-dev
+    restart: unless-stopped
+
+    environment:
+      PMA_HOST: mysql-dev
+      PMA_PORT: 3306
+
+    ports:
+      - "8080:80"
+
+    depends_on:
+      - mysql-dev
+
+
+  php74:
+    build:
+      context: ../php/apache-php74
+
+    container_name: new-snappy-web-test
+
+    restart: unless-stopped
+
+    ports:
+      - "8081:80"
+
+    volumes:
+      - ../proyectos/new_snappy:/var/www/html
+
+    depends_on:
+      - mysql-dev
